@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <section class="appointments-section">
+        <h1>Book an Appointment</h1>
+        <form class="appointment-form" action="#" method="POST">
+            <label for="doctor">Choose a Doctor:</label>
+            <select id="doctor" name="doctor" required>
+                <option value="" disabled selected>Select a doctor</option>
+                <option value="dr-smith">Dr. Smith</option>
+                <option value="dr-brown">Dr. Brown</option>
+                <option value="dr-green">Dr. Green</option>
+            </select>
+
+            <label for="date">Select Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Select Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <button type="submit" class="appointment-button">Book Appointment</button>
+        </form>
+    </section>
+</body>
+</html>

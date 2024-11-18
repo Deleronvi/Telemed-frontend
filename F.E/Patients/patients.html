@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" href="pat.css">
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Welcome,  <span id="patient-name">Loading...</span></h1>
+        
+        <!-- Upcoming Appointments Section -->
+        <section id="upcoming-appointments">
+            <h2>Upcoming Appointments</h2>
+            <div id="appointments-list">
+                <!-- Example appointment card -->
+                <div class="appointment-card">
+                    <p>Doctor: Dr. Smith</p>
+                    <p>Date: 2023-11-04</p>
+                    <p>Time: 10:00 AM</p>
+                    <a href="../Appointments page/app.html" style="text-decoration: none;">
+                             <button class="reschedule-btn">Reschedule</button>
+                    </a>
+                    
+                    <button class="cancel-btn">Cancel</button>
+                </div>
+                <!-- Additional appointments go here -->
+            </div>
+            <a href="../Appointments page/app.html" style="text-decoration: none;">
+                <button id="book-appointment-btn">Book New Appointment</button>
+            </a>
+            
+        </section>
+        
+        <!-- Profile Section -->
+        <section id="profile">
+            <h2>Your Profile</h2>
+            <p>Name: <span id="patient-name">Loading...</p>
+            <p>Email: <span id="patient-email">Loading...</p>
+            <button id="update-profile-btn">Update Profile</button>
+        </section>
+
+        <!-- Appointment History Section -->
+        <section id="appointment-history">
+            <h2>Appointment History</h2>
+            <div id="history-list">
+                <!-- past appointment card -->
+                <div class="history-card">
+                    <p>Doctor: Dr. Green</p>
+                    <p>Date: 2023-09-20</p>
+                    <p>Status: Completed</p>
+                </div>
+               
+            </div>
+        </section>
+
+        <!-- Logout Button -->
+        <button id="logout-btn">Logout</button>
+    </div>
+
+    <script src="pat.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+*{
+    margin: 0%;
+    padding: 0;
+    color: white;
+    font-size: 1rem;
+    }
+    .container{
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(image.jpeg);
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    }
+    
+    .input-field img{
+       padding-left: 10px;
+    }
+    .box{
+        width: 90%;
+        max-width: 450px;
+        background: transparent;
+        padding: 40px 40px 70px;
+        text-align: center;
+        transform: translate(-50%,-50%);
+        border:2px solid #473f47 ;
+        border-radius: 20px;       
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        
+    }
+    .box h1{
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        color: rgb(12, 190, 235);
+        text-transform: uppercase;
+    }
+    .input-field {
+        background: transparent;
+        margin: 10px 0;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        max-height: 65px;
+        overflow: hidden;
+        transition:max-height 0.5s ;
+        border-bottom: 2px solid white;
+  
+    }
+    
+    input{
+        width: 100%;
+        background: transparent;
+        border: 0;
+        outline: 0;
+        padding: 18px 15px;
+        color:black;
+        font-size: 1rem;
+    }
+    input::placeholder{
+        color: #07268d;
+        font-size: 1rem;
+        transition: opacity 0.3s ease;
+    }
+    input:hover::placeholder {
+        opacity: 0; /* Make placeholder disappear on hover */
+    }
+    input:hover{
+        padding-bottom: 25px;
+        transition: all ease-in-out 200ms;
+    
+    }
+   
+    form p{
+        text-align: left;
+        font-size: 13px;
+        font-size: 1.2rem;
+        color:orangered;
+        font-weight: 200;
+    }
+    form p a{
+        text-decoration: none;
+        color: red;
+        font-size: 1.2rem;
+    }
+    .btn{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.2rem;
+    }
+    .btn button{
+        flex-basis: 48%;
+        background: #07268d;
+        color: white;
+        border-radius: 20px;
+        padding: 8px 0;
+        border: 0;
+        outline: 0;
+        margin-top:15px;
+        cursor: pointer;
+       
+    }
+    .btn button.disable{
+     background: #aeaeae;   
+     color: #555;
+    }
+    .terms {
+        display: flex;
+        align-items: center;
+        margin: 20px 8px;
+        justify-content: space-between;
+ 
+    }
+    .terms label{
+        margin-left: 5px;
+         font-size: 1.2rem;
+         color: wheat;
+    }
+    .terms button{
+        color: black;
+        border-radius: 12px;
+        font-size: 15px;
+        padding: 4px 6px;
+        cursor: pointer;
+        margin-left: 7px;
+    }
+    .terms input{
+        width: fit-content;
+    }
+
+
+    /*moble responsive */
+    @media (max-width: 600px) {
+
+.box{
+    margin-top: opx;
+height: 50vh;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    flex-wrap: wrap;
+
+}
+
+    }

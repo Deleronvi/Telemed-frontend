@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN FORM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+<div class="box">
+    <h1 id="title"> Sign Up</h1>
+    <form id="registrationForm" action="">
+        <div class="input-group">
+<div class="input-field" id="nameField">
+   <i class="user"><img src="user.png" alt="" style="width:35px;"></i>
+   <input type="text" id="name" placeholder="Name">
+</div>
+
+<div class="input-field">
+    <i class="envelope"><img src="envelope.png" alt=""style="width:35px;"></i>
+    <input type="text" id="email" placeholder="Email">
+ </div>
+ <div class="input-field">
+    <i class="lock"><img src="lock.png" alt=""style="width:35px;"></i>
+    <input type="text" placeholder="Password" id="password" required>
+ </div>
+ <div class="input-field">
+    <i class="lock"><img src="lock.png" alt=""style="width:35px;"></i>
+    <input type="text" placeholder="Confirm your password"  id="confirmPassword" required>
+    </div>
+
+   
+   
+<div class="terms">
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to the Terms and Conditions</label>
+        <button type="submit" id="login-btn">Submit</button></div>
+
+   
+   <p>Lost Your Password ? <a href="#">Click here</a></p>
+   <div class="btn">
+    <button type="button" id="signupBtn">Sign Up</button>
+    <button type="button" id="signinBtn"class="disable">Sign In</button>
+   </div>
+ </div>
+    </form>
+</div>
+
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
