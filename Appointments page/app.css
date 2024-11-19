@@ -4,6 +4,30 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+nav{
+    background-color: #333;
+    height: 60px;
+width:100%;
+display: flex;
+}
+.links ul{
+    list-style: none;
+    display: flex;
+}
+.links ul li{
+   margin: 0 8px;
+}
+
+.links ul li a{
+    color: white;
+    display: flex;
+    text-decoration: none;
+    transition: all ease-in-out 0.5s;
+}
+.links a:hover{
+    scale: 1.2;
+    color: orangered;
+}
 
 .appointments-section {
     padding: 20px;

@@ -24,20 +24,16 @@ setInterval(moveSlider, 3000);
 
 
 //burger menu
-let burgerBtn = document.querySelector(".menu-btn");
-let burgerMenu = document.querySelector(".Burger-menu");
+const burgerBtn = document.getElementById('burger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
 
-let isBurgerOpen =false;
+burgerBtn.addEventListener('click', (event) => {
+    mobileMenu.classList.toggle('visible');
+    event.stopPropagation();
+});
 
-burgerBtn.onclick = function() {
-    if ( !isBurgerOpen){
-        burgerMenu.style.display = "block";
-        burgerBtn.style.backgroundPosition =" center left 50px, center"
-        isBurgerOpen = true;
+document.addEventListener('click', (event) => {
+    if (!burgerBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+        mobileMenu.classList.remove('visible'); 
     }
-    else if(isBurgerOpen){
-        burgerMenu.style.display = "none";
-    burgerBtn.style.backgroundPosition ="center, center left 50px"
-    isBurgerOpen = false;
-}
-}
+});

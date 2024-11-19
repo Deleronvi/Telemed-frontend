@@ -22,10 +22,10 @@ body{
     color: white;
     display: flex;
     justify-content: center;
-    align-items: center;
-    
-    
+    align-items: center;   
 }
+
+
 .links{
     flex-grow: 1;
 }
@@ -43,6 +43,7 @@ align-items: center;
 justify-content: space-between;
 z-index: 1000;
 margin-bottom: 0;
+
 
 }
 .logo{
@@ -76,6 +77,10 @@ nav li{
    font-size: 0.9rem;
 
 }
+.links a:hover{
+    scale: 1.2;
+    color: orangered;
+}
 
 nav a{
   text-decoration: none; 
@@ -83,7 +88,22 @@ nav a{
 
 }
 nav a:hover{
-    color: red;
+    scale: 1.2;
+    color: orangered;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    background-color: white;
+    height: 3px;
+    width: 25px;
+    margin: 3px 0;
+    transition: 0.3s;
 }
 
 .sm{
@@ -116,6 +136,53 @@ background-image: url(fb\ colored.png);
 .Burger-menu, .menu-btn{
     display: none;
 }
+
+.menu-container {
+    position: relative;
+}
+
+.burger-btn {
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.dropdown-menu {
+    display: none;
+    background-color: white;
+    padding: 0;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+}
+.mobile-menu li a{
+display: block;
+color: #333;
+}
+
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 7px;
+    transition: all ease-in-out 0.5s;
+}
+
+/* Utility class to show the menu */
+.visible {
+    display: block;
+}
+
 /*ABOUT SECTION*/
 
 .tt{
@@ -506,63 +573,36 @@ font-size: 1.5rem;
    .call{
     border-radius: 17px;
    }
-   
-.menu-btn{
-  
-    display: block;
-    width: 50px;
-    height: 50px;
-    background-image: url(opener.png), url(closing.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center, center left 50px;
-    cursor: pointer;
-    margin-left: 5px;
+   .menu-container {
+    position: relative;
+}
+   .logo{
+    margin-right: 0;
+    margin-left: 0;
    }
-   
-   .Burger-menu {
-       display: none;
-       position: fixed;
-       width: 100%;
-       height: 100vh;
-       z-index:900 ;
-       background-color: #111;
-      
+   .logs{
+    margin-right: 7rem;
    }
-   .Burger-menu ul {
-       width: 100%;
-       height: calc(100%- 60px);
-      padding-top: 30px;
-       display: flex;
-       flex-wrap: wrap;
-      align-content: flex-start;
-   }
-   .Burger-menu li{
-       flex-basis: 100%;
-       border-top: 2px solid #000;
-       list-style: none;
-    
-   }
-   .Burger-menu li:last-child{
-       border-bottom: 2px solid #000;
-      
-   }
-   .Burger-menu a{
-    display: block;
-    height:100% ;
-    font-size:3rem ;
-    padding:30px 0 ;
-    flex-basis:100% ;
-    text-align: center; 
-    text-decoration: none;
-    color: white;
+   .navbar{
+    display: flex;
+    justify-content: center;
+   gap: 1px;
    }
       .sm {
        
        padding-right: 0;
-       margin-right: 3px;
+      
       
       }
-    
-   
+      .fb{
+        padding-right: 0;
+        background-color: blue;
+      }
+   .burger-btn{
+    margin-left: 0px;
+   }
+   .nav-list2{
+    padding-inline-start: 0 !important;
+    float: left;
+   }
 }

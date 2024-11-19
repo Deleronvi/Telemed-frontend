@@ -1,3 +1,13 @@
+
+//burger menu
+const burgerBtn = document.getElementById('burger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+burgerBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('visible');
+});
+
+
 // Retrieve data from localStorage
 const name = localStorage.getItem('patientName');
 const email = localStorage.getItem('patientEmail');
