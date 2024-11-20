@@ -10,6 +10,20 @@ nav{
 width:100%;
 display: flex;
 }
+
+.logo{
+    width: fit-content;
+    height: 100%;
+    display: flex;
+   
+}
+.logo img{
+    align-self: center;
+    height: 53px;
+ border-radius: 50%;
+ width: 53px;
+
+}
 .links ul{
     list-style: none;
     display: flex;

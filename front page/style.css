@@ -1,16 +1,18 @@
-* {
+*{
     font-size: 1rem;
+    
 }
 
 body{
     background-image: linear-gradient(to right, #b8cbb8 0%, #b8cbb8 0%, #b465da 0%, #cf6cc9 33%, #ee609c 66%, #ee609c 100%);
-    margin: 0;  
+    margin: 0 ;  
     color: white;
     overflow-x: hidden;
-    
+    width: 100%;
 }
 .wrapper{
     margin: 0 auto;
+   max-width: 100%;
 }
 .title{
     max-width: 100%;
@@ -34,7 +36,7 @@ body{
     align-items: center;
     
 }
-nav{
+.navbar{
     background-color: aliceblue;
     height: 60px;
 width:100%;
@@ -54,12 +56,14 @@ margin-bottom: 0;
 }
 .logo img{
     align-self: center;
-    height: 48px;
- 
+    height: 53px;
+ border-radius: 50%;
+ width: 53px;
+
 }
 .links {
     flex-grow: 1;
-    width: fit-content;
+    width:auto;
    
   
 }
@@ -112,7 +116,7 @@ nav a:hover{
     display: flex;
     align-items: center;
     column-gap: 10px;  
-    padding-right: 10px;
+  margin-left: 10px;
 }
 .ig{
     width: 30px;
@@ -520,16 +524,14 @@ footer a:hover{
 
 @media only screen and (max-width:600px)  {
     .wrapper{
-
  width: 100%;
- max-width: calc(100% - 20px);
+ max-width: calc(100% - 10px);
+
     }
     
     nav{
         display: flex;
         flex-wrap: wrap;
-        
-     
     }
     .service{
       width: fit-content;
@@ -581,7 +583,7 @@ font-size: 1.5rem;
     margin-left: 0;
    }
    .logs{
-    margin-right: 7rem;
+    margin-right: 4rem;
    }
    .navbar{
     display: flex;
@@ -599,7 +601,8 @@ font-size: 1.5rem;
         background-color: blue;
       }
    .burger-btn{
-    margin-left: 0px;
+    margin: 0px;
+    margin-left: 10px;
    }
    .nav-list2{
     padding-inline-start: 0 !important;
