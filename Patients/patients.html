@@ -5,19 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Dashboard</title>
     <link rel="stylesheet" href="pat.css">
+   
 </head>
 <body>
     <nav class="navbar">
         <div class="logo">
             <img src="logos.jpg" alt="Logo">
         </div>
-       
+        <h1>Patient Dashboard</h1>
         <div class="links"> <ul>
                     <li><a href="../front page/index.html">Home</a></li>
                     <li><a href="../Appointments page/app.html">Appointments</a></li>
-                    <li><a href="../Patients/patients.html">Doctors</a></li>
+                    <li><a href="../Doctors page/doc.html">Doctors</a></li>
                     <li><a href="patients.html">Profile</a></li>
                 </ul></div>
+
+                 <!-- Burger Menu for Mobile View -->
+            <div class="menu-container">
+                <button id="burger-btn" class="burger-btn">☰</button>
+                <nav id="mobile-menu" class="dropdown-menu hidden">
+                    <ul>
+                        <li><a href="../front page/index.html">Home</a></li>
+                        <li><a href="../Appointments page/app.html">Appointments</a></li>
+                        <li><a href="../Doctors page/doc.html">Doctors</a></li>
+                        <li><a href="../Patients/patients.html">Profile</a></li>
+                    </ul>
+                </nav> 
+            </div>
     </nav>
     <div class="dashboard">
         <h1>Welcome,  <span id="patient-name">Loading...</span></h1>
@@ -31,8 +45,8 @@
                     <p>Doctor: Dr. Smith</p>
                     <p>Date: 2023-11-04</p>
                     <p>Time: 10:00 AM</p>
-                    <a href="../Appointments page/app.html" style="text-decoration: none;">
-                             <button class="reschedule-btn">Reschedule</button>
+                    <a  href="../Appointments page/app.html" style="text-decoration: none;">
+                             <button id="reschedule" class="reschedule-btn">Reschedule</button>
                     </a>
                     
                     <button class="cancel-btn">Cancel</button>

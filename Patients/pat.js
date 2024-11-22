@@ -3,8 +3,15 @@
 const burgerBtn = document.getElementById('burger-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
-burgerBtn.addEventListener('click', () => {
+burgerBtn.addEventListener('click', (event) => {
     mobileMenu.classList.toggle('visible');
+    event.stopPropagation();
+});
+
+document.addEventListener('click', (event) => {
+    if (!burgerBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+        mobileMenu.classList.remove('visible'); 
+    }
 });
 
 
@@ -29,3 +36,10 @@ document.getElementById('logout-btn').addEventListener('click', function() {
     // Redirect to login page
     window.location.href = '../login page/login.html'; 
 });
+
+document.getElementById('reschedule').addEventListener('click', function(event){
+    event.preventDefault()
+    alert("Do you want to reschedule ?");
+    window.location.href = "../Appointments page/app.html";
+});
+

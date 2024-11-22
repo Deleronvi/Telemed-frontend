@@ -5,19 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book an Appointment</title>
     <link rel="stylesheet" href="app.css">
+    <script src="app.js" defer></script>
 </head>
 <body>
 <nav>
     <div class="logo">
         <img src="logos.jpg" alt="Logo">
     </div>
-   
+    <h1>Appointments Dashboard</h1>
     <div class="links"> <ul>
         <li><a href="../front page/index.html">Home</a></li>
         <li><a href="app.html">Appointments</a></li>
-        <li><a href="../Patients/patients.html">Doctors</a></li>
+        <li><a href="../Doctors page/doc.html">Doctors</a></li>
         <li><a href="../Patients/patients.html">Profile</a></li>
     </ul></div>
+
+         <!-- Burger Menu for Mobile View -->
+         <div class="menu-container">
+            <button id="burger-btn" class="burger-btn">☰</button>
+            <nav id="mobile-menu" class="dropdown-menu hidden">
+                <ul>
+                    <li><a href="../front page/index.html">Home</a></li>
+                    <li><a href="../Appointments page/app.html">Appointments</a></li>
+                    <li><a href="../Doctors page/doc.html">Doctors</a></li>
+                    <li><a href="../Patients/patients.html">Profile</a></li>
+                </ul>
+            </nav> 
+        </div>
 </nav>
     <section class="appointments-section">
         <h1>Book an Appointment</h1>

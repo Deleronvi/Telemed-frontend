@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Doctors Page</title>
   <link rel="stylesheet" href="doc.css">
+
+  <script src="doc.js" defer></script>
 </head>
 <body>
   <!-- Header -->
@@ -15,12 +17,26 @@
     <h1>Doctor Dashboard</h1>
     <nav>
       <ul class="nav-links">
+        <li><a href="../front page/index.html">Home</a></li>
         <li><a href="#profile">Profile</a></li>
         <li><a href="#appointments">Appointments</a></li>
         <li><a href="#schedule">Schedule</a></li>
       </ul>
     </nav>
     <button class="logout-btn">Logout</button>
+
+       <!-- Burger Menu for Mobile View -->
+       <div class="menu-container">
+        <button id="burger-btn" class="burger-btn">☰</button>
+        <nav id="mobile-menu" class="dropdown-menu hidden">
+            <ul>
+                <li><a href="../front page/index.html">Home</a></li>
+                <li><a href="../Appointments page/app.html">Appointments</a></li>
+                <li><a href="../Doctors page/doc.html">Doctors</a></li>
+                <li><a href="../Patients/patients.html">Profile</a></li>
+            </ul>
+        </nav> 
+    </div>
   </header>
 
   <!-- Main Content -->
@@ -31,9 +47,9 @@
       <div class="profile-card">
         <img src="doctor.jpg" alt="Doctor Profile" class="profile-img">
         <div class="profile-info">
-          <p><strong>Name:</strong> Dr. John Doe</p>
+          <p><strong>Name:</strong> Dr. Arancas</p>
           <p><strong>Specialty:</strong> Cardiology</p>
-          <p><strong>Contact:</strong> johndoe@example.com</p>
+          <p><strong>Contact:</strong> Arancas@gmail.com</p>
           <button class="edit-btn">Edit Profile</button>
         </div>
       </div>
@@ -49,7 +65,7 @@
       </div>
       <div class="appointment-list">
         <div class="appointment-card">
-          <p><strong>Patient:</strong> Jane Smith</p>
+          <p><strong>Patient:</strong> Kurosaki</p>
           <p><strong>Date:</strong> 25th Nov 2024</p>
           <p><strong>Time:</strong> 10:00 AM</p>
           <button class="view-btn">View Details</button>

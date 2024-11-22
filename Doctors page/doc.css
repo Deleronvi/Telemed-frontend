@@ -1,4 +1,4 @@
-/* General Styles */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -15,6 +15,7 @@ body {
     padding: 10px 20px;
     background: #222;
     color: white;
+    height: 60px;
   }
   
   .header .nav-links {
@@ -36,6 +37,11 @@ body {
  width: 53px;
 
 }
+h1{
+    color: white;
+    margin-left: 10px;
+    font-size: 1.2rem
+}
   
   .header .nav-links a {
     color: white;
@@ -52,7 +58,60 @@ body {
     border: none;
     padding: 5px 10px;
     cursor: pointer;
+    margin: 5px;
   }
+
+
+  
+.menu-container {
+    position: relative;
+    margin-left: auto;
+    align-items: center;
+}
+
+.burger-btn {
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    margin-top: 0px;
+    color: white;
+}
+
+.dropdown-menu {
+    display: none;
+    background-color: white;
+    padding: 0;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+}
+.mobile-menu li a{
+display: block;
+color: #333;
+}
+
+
+.dropdown-menu a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 7px;
+    transition: all ease-in-out 0.5s;
+}
+
+/* Utility class to show the menu */
+.visible {
+    display: block;
+}
   
   main {
     padding: 20px;
@@ -93,5 +152,11 @@ body {
     text-align: center;
     padding: 10px;
     background: #f4f4f4;
+  }
+  @media (max-width: 768px) {
+
+    nav{
+        display: none;
+    }
   }
   

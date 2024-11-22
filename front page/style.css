@@ -345,19 +345,14 @@ button:hover{
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
    display: flex;
-   
-}
-.card-container {
-    display: flex;
-    justify-content: space-evenly;
+   justify-content: space-evenly;
     flex-wrap: wrap;
-    width: 100%; 
     margin: 0 auto; 
     padding: 20px;
     gap: 7rem;
-   
-   
-  }
+
+}
+
   .card {
     background-color: white;
     border-radius: 8px;
@@ -407,7 +402,7 @@ button:hover{
     width: 100%;
     text-align: center;
     color: white; 
-   max-width: ;
+   
     position: relative;
 z-index: 1;
 margin: 0 auto;
@@ -521,10 +516,9 @@ footer a:hover{
     
     nav{
         display: flex;
-        flex-wrap: wrap;
-        margin: 0 auto;
-     
      width: fit-content;
+     align-items: center;
+     
     }
     .burger-btn{
        margin: 0;
@@ -576,12 +570,9 @@ font-size: 1.5rem;
     margin-right: 0;
     margin-left: 0;
    }
-   .logs{
-    margin-right: 4rem;
-   }
+  
    .navbar{
-    display: flex;
-    justify-content: center;
+    
    gap: 1px;
    }
       .sm {
