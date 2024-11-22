@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctors Page</title>
+  <link rel="stylesheet" href="doc.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+        <img src="logos.jpg" alt="Logo">
+    </div>
+    <h1>Doctor Dashboard</h1>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#appointments">Appointments</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+      </ul>
+    </nav>
+    <button class="logout-btn">Logout</button>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Doctor Profile Section -->
+    <section id="profile" class="profile-section">
+      <h2>Profile</h2>
+      <div class="profile-card">
+        <img src="doctor.jpg" alt="Doctor Profile" class="profile-img">
+        <div class="profile-info">
+          <p><strong>Name:</strong> Dr. John Doe</p>
+          <p><strong>Specialty:</strong> Cardiology</p>
+          <p><strong>Contact:</strong> johndoe@example.com</p>
+          <button class="edit-btn">Edit Profile</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Appointments Section -->
+    <section id="appointments" class="appointments-section">
+      <h2>Appointments</h2>
+      <div class="appointments-filter">
+        <button>Upcoming</button>
+        <button>Completed</button>
+        <button>Canceled</button>
+      </div>
+      <div class="appointment-list">
+        <div class="appointment-card">
+          <p><strong>Patient:</strong> Jane Smith</p>
+          <p><strong>Date:</strong> 25th Nov 2024</p>
+          <p><strong>Time:</strong> 10:00 AM</p>
+          <button class="view-btn">View Details</button>
+        </div>
+        <!-- Add more cards dynamically -->
+      </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="schedule-section">
+      <h2>Manage Schedule</h2>
+      <form class="schedule-form">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date">
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time">
+        <button type="submit" class="add-slot-btn">Add Slot</button>
+      </form>
+      <div class="schedule-list">
+        <h3>Available Slots</h3>
+        <ul>
+          <li>25th Nov 2024 - 10:00 AM <button class="remove-btn">Remove</button></li>
+          <!-- Add dynamically -->
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2024 Telemedicine App</p>
+  </footer>
+</body>
+</html>
