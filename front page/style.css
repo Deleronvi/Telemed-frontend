@@ -9,10 +9,12 @@ body{
     color: white;
     overflow-x: hidden;
     width: 100%;
+    
 }
 .wrapper{
     margin: 0 auto;
-   max-width: 100%;
+   max-width: 99%;
+ 
 }
 .title{
     max-width: 100%;
@@ -212,7 +214,9 @@ color: #333;
         line-height: 1;
         text-align: center;
      flex: 1;
-       
+    }
+    .service-first p{
+   font-size: 1.5rem;
     }
 
     .service-second{ 
@@ -227,6 +231,7 @@ color: #333;
     .service-first ul li {
         margin: 5px 0; 
   text-align: justify;
+  font-size: 1.5rem;
   
     }
     .box1 p{
@@ -241,7 +246,7 @@ color: #333;
 
     .slider {
         width: 100%;
-        max-width: 1100px;
+        max-width:68.75rem; ;
         border-radius: 10px;
         margin: 30px auto;
         overflow: hidden; /* Hide anything outside the view */
@@ -276,7 +281,7 @@ color: #333;
     text-align: center; 
     padding: 20px;
     margin: 0 auto;
-    max-width: 1200px; 
+    max-width:72rem; 
     font-size: 1.3rem;
     
 }
@@ -329,7 +334,7 @@ button:hover{
 
 .testimonials blockquote {
     margin: 20px auto;
-    max-width: 800px;
+    max-width: 50rem;
     font-size: 1.5rem;
  
 }
@@ -340,6 +345,7 @@ button:hover{
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
    display: flex;
+   
 }
 .card-container {
     display: flex;
@@ -348,8 +354,9 @@ button:hover{
     width: 100%; 
     margin: 0 auto; 
     padding: 20px;
-    gap: 100px; 
-    margin-right: 0px;
+    gap: 7rem;
+   
+   
   }
   .card {
     background-color: white;
@@ -361,15 +368,16 @@ button:hover{
     transition: transform 0.2s;
     padding: 20px;
   box-sizing: border-box;
-    min-width: 280px;
+    min-width: 17.5rem;
+  
   }
   .card:hover {
     transform: scale(1.05); 
   }
   
   .card img{
-    width: 250px;
-    height: 250px;
+    width: 15.6rem;
+    height: 15.6rem;
     border-radius: 50%;
 }
   
@@ -382,7 +390,7 @@ button:hover{
     padding: 0 10px 10px; 
     font-size: 1rem;
     color: #0e0404;
-    margin-top: 40px;
+    margin-top: 25px;
   }
   
 
@@ -399,9 +407,10 @@ button:hover{
     width: 100%;
     text-align: center;
     color: white; 
-   
+   max-width: ;
     position: relative;
 z-index: 1;
+margin: 0 auto;
 }
 .intro::before {
     content: "";
@@ -417,38 +426,19 @@ z-index: 1;
 
 
 
-.learn{
-    width: 100%;
-     margin: 30px 0;
-     font-size: 1.4rem;
-     color: azure;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-    column-gap: 220px;
-   line-height: 36px;
-   flex-wrap: wrap;
-   padding-bottom: 30px;
-   flex-direction: column;
-   
-   }
-   .learn p{
-       padding: 0% 50px;
-       max-width: 600px;
-   }
    .call{
     background-image: linear-gradient(to left, #BDBBBE 0%, #9D9EA3 100%), radial-gradient(88% 271%, rgba(255, 255, 255, 0.25) 0%, rgba(254, 254, 254, 0.25) 1%, rgba(0, 0, 0, 0.25) 100%), radial-gradient(50% 100%, rgba(255, 255, 255, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%);
  background-blend-mode: normal, lighten, soft-light;
    text-align:center ;
    margin: 0 auto;
    padding: 25px 18px;
-   font-size: 1.8rem;
+   font-size: 1.5rem;
    }
    .cta{
     margin-bottom: 33px;
    }
    .opinion p {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     margin-bottom: 30px;
 }
 .cta-buttons {
@@ -525,13 +515,19 @@ footer a:hover{
 @media only screen and (max-width:600px)  {
     .wrapper{
  width: 100%;
- max-width: calc(100% - 10px);
+ max-width: calc(100% - 20px);
 
     }
     
     nav{
         display: flex;
         flex-wrap: wrap;
+        margin: 0 auto;
+     
+     width: fit-content;
+    }
+    .burger-btn{
+       margin: 0;
     }
     .service{
       width: fit-content;
@@ -575,9 +571,7 @@ font-size: 1.5rem;
    .call{
     border-radius: 17px;
    }
-   .menu-container {
-    position: relative;
-}
+ 
    .logo{
     margin-right: 0;
     margin-left: 0;
@@ -600,10 +594,7 @@ font-size: 1.5rem;
         padding-right: 0;
         background-color: blue;
       }
-   .burger-btn{
-    margin: 0px;
-    margin-left: 10px;
-   }
+  
    .nav-list2{
     padding-inline-start: 0 !important;
     float: left;
