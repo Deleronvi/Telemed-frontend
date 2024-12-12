@@ -92,7 +92,6 @@ display: flex;
         overflow: hidden;
         transition:max-height 0.5s ;
         border-bottom: 2px solid white;
-  
     }
     
     input{
@@ -110,12 +109,19 @@ display: flex;
         transition: opacity 0.3s ease;
     }
     input:hover::placeholder {
-        opacity: 0; /* Make placeholder disappear on hover */
+        opacity: 0; 
     }
     input:hover{
         padding-bottom: 25px;
         transition: all ease-in-out 200ms;
     
+    }
+    .input-field:nth-child(7){
+        border-bottom: none;
+    }
+    label {
+        color: #07268d;
+        border-bottom: none;
     }
    
     form p{
@@ -181,13 +187,13 @@ display: flex;
     /*moble responsive */
     @media (max-width: 600px) {
         .container {
-            background-attachment: scroll; /* Avoid performance issues on mobile */
+            background-attachment: scroll;
             overflow: hidden;
             justify-content: center;
         }
     
         .box {
-            width: 100%; /* Utilize full width on smaller screens */
+            width: 100%; 
             margin: 40px;
             padding: 20px;
            position: static;

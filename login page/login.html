@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGIN FORM</title>
     <link rel="stylesheet" href="style.css">
+    <script src="login.js" defer></script>
 </head>
 <body>
     <nav class="navbar">
@@ -23,28 +24,49 @@
         
 <div class="box">
     <h1 id="title"> Sign Up</h1>
-    <form id="registrationForm" action="http://localhost:3600/patients/login">
+
+    <form id="registrationForm" >
+
         <div class="input-group">
 <div class="input-field" id="nameField">
    <i class="user"><img src="user.png" alt="" style="width:35px;"></i>
-   <input type="text" id="name" placeholder="Name">
+   <input type="text" id="full_name" placeholder="Full Name" required>
 </div>
 
 <div class="input-field">
     <i class="envelope"><img src="envelope.png" alt=""style="width:35px;"></i>
-    <input type="text" id="email" placeholder="Email">
+    <input type="email" id="email" placeholder="Email" required>
  </div>
+
  <div class="input-field">
     <i class="lock"><img src="lock.png" alt=""style="width:35px;"></i>
-    <input type="text" placeholder="Password" id="password" required>
+    <input type="password" id="password" placeholder="Password" required>
  </div>
+
  <div class="input-field">
     <i class="lock"><img src="lock.png" alt=""style="width:35px;"></i>
-    <input type="text" placeholder="Confirm your password"  id="confirmPassword" required>
+    <input type="password" placeholder="Confirm your password"  id="confirmPassword" required>
     </div>
 
-   
-   
+    <div class="input-field" id="contField">
+        <i class="contact"><img src="phone.png" alt=""style="width:35px;"></i>
+        <input type="tel" id="phone" placeholder="Phone Number" pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number." required>
+     </div>
+
+     <div class="input-field" id="dateField">
+     <label for="date">Date of birth:</label>
+     <input type="date" id="date_of_birth" name="date" required>
+   </div>
+
+   <div class="input-field" id="sexField">
+     <label for="sex">Sex:</label>
+    <select id="sex" required>
+        <option value="">Select</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+    </select></div>
+
 <div class="terms">
         <input type="checkbox" id="terms" name="terms" required>
         <label for="terms">I agree to the Terms and Conditions</label>
@@ -54,13 +76,13 @@
    <p>Lost Your Password ? <a href="#">Click here</a></p>
    <div class="btn">
     <button type="button" id="signupBtn">Sign Up</button>
-    <button type="button" id="signinBtn"class="disable">Sign In</button>
+    <button type="button" id="loginBtn"class="disable">Log In</button>
    </div>
  </div>
     </form>
 </div>
 
     </div>
-    <script src="login.js"></script>
+    
 </body>
 </html>

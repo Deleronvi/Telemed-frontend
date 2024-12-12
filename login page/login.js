@@ -1,45 +1,60 @@
-let signinBtn = document.getElementById("signinBtn")
+let loginBtn = document.getElementById("loginBtn")
 let signupBtn = document.getElementById("signupBtn")
 let nameField = document.getElementById("nameField")
 let title = document.getElementById("title")
 let inputField = document.getElementById("input-field")
+let sexField = document.getElementById("sexField")
+let dateField = document.getElementById("dateField")
+ let contField = document.getElementById("contField")
 
-signinBtn.onclick = function(){
-    console.log("Sign In button clicked");
-    nameField.style.maxHeight = "0";
-    title.innerHTML = "sign In";
+loginBtn.onclick = function(){
+    console.log("Log In button clicked");
+    nameField.style.height= "0";
+    dateField.style.height= "0";
+    sexField.style.height= "0";
+    contField.style.height= "0";
+    title.innerHTML = "Log In";
     signupBtn.classList.add("disable");
-    signinBtn.classList.remove("disable");
+    loginBtn.classList.remove("disable");
 }
 signupBtn.onclick = function(){
     console.log("Sign Up button clicked");
-    nameField.style.maxHeight = "60px";
+    nameField.style.height = "60px";
+    dateField.style.height = "60px";
+    sexField.style.height = "60px";
+    contField.style.height = "60px";
     title.innerHTML = "sign Up";
     signupBtn.classList.remove("disable");
-    signinBtn.classList.add("disable");
+    loginBtn.classList.add("disable");
 }
 
 // Form submission and validation
-document.getElementById('registrationForm').onsubmit = function (event) {
-    event.preventDefault(); // Prevent form submission for validation
+document.getElementById('registrationForm').onsubmit = async function (event) {
+    event.preventDefault(); 
 
     // Form data
-    const name = document.getElementById('name').value;
+    const fullName = document.getElementById('full_name').value;
+    const [firstName, lastName] = fullName.split(' ');
     const email = document.getElementById('email').value;
-    const passwordField = document.getElementById('password');
-    const confirmPasswordField = document.getElementById('confirmPassword');
+    const passwordField = document.getElementById('password').value;
+    console.log("Password being sent:", passwordField);
+
+    const confirmPasswordField = document.getElementById('confirmPassword').value;
     const termsCheckbox = document.getElementById('terms');
-    
+    const phone = document.getElementById('phone').value;
+    const dateOfBirth = document.getElementById('date_of_birth').value;
+    const gender = document.getElementById('sex').value;
+
     // Validation checks
     if (!termsCheckbox.checked) {
         alert('You must agree to the Terms and Conditions.');
         return;
     }
-    if (passwordField.value.length < 8) {
+    if (passwordField.length < 8) {
         alert('Password must be at least 8 characters long.');
         return;
     }
-    if (passwordField.value !== confirmPasswordField.value) {
+    if (passwordField !== confirmPasswordField) {
         alert('Passwords do not match.');
         return;
     }
@@ -49,9 +64,39 @@ document.getElementById('registrationForm').onsubmit = function (event) {
     }
 
     // Save data to localStorage if validation passes
-    localStorage.setItem('patientName', name);
+    localStorage.setItem('patientName', full_name);
     localStorage.setItem('patientEmail', email);
 
-    // Redirect to patient dashboard (patients.html)
-    window.location.href = '../Patients/patients.html';
+    // Send data to the backend via a POST request
+    try {
+        const response = await fetch('http://localhost:3600/patients/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                first_name: firstName,
+                last_name: lastName,
+                email: email,
+                password: passwordField,
+                phone: phone,
+                date_of_birth: dateOfBirth,
+                gender: gender,
+            }),
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            console.log('Patient registered successfully', result);
+            // Redirect to the patient's profile or dashboard page
+            window.location.href = '../Patients/patients.html';
+        } else {
+            alert(result.error || 'Failed to register patient');
+        }
+    } catch (err) {
+        console.error('Error:', err);
+        alert('Error submitting form');
+    }
+    
 };
+
