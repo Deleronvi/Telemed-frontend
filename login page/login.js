@@ -6,13 +6,21 @@ let inputField = document.getElementById("input-field")
 let sexField = document.getElementById("sexField")
 let dateField = document.getElementById("dateField")
  let contField = document.getElementById("contField")
+ let submitBtn = document.getElementById("loginBtn");
 
 loginBtn.onclick = function(){
     console.log("Log In button clicked");
-    nameField.style.height= "0";
-    dateField.style.height= "0";
-    sexField.style.height= "0";
-    contField.style.height= "0";
+    
+        nameField.style.display = 'none';
+            dateField.style.display = 'none';
+            sexField.style.display = 'none';
+            contField.style.display = 'none';
+
+            nameField.removeAttribute('required');
+            dateField.removeAttribute('required');
+            sexField.removeAttribute('required');
+            contField.removeAttribute('required');
+ submitBtn.innerText = "Log In";
     title.innerHTML = "Log In";
     signupBtn.classList.add("disable");
     loginBtn.classList.remove("disable");
@@ -68,6 +76,33 @@ document.getElementById('registrationForm').onsubmit = async function (event) {
     localStorage.setItem('patientEmail', email);
 
     // Send data to the backend via a POST request
+    if (submitBtn.innerText === "Log In") {
+        // Log In process (send email and password)
+        try {
+            const response = await fetch('http://localhost:3600/patients/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                console.log('Login successful', result);
+                localStorage.setItem('patientName', result.name);
+                localStorage.setItem('patientEmail', result.email);
+                window.location.href = '../Patients/patients.html';  // Redirect to patients page
+            } else {
+                alert(result.error || 'Failed to log in');
+            }
+        } catch (err) {
+            console.error('Error:', err);
+            alert('Error logging in');
+        }
+    } else if (submitBtn.innerText === "Sign Up") {
+        // Sign Up process
     try {
         const response = await fetch('http://localhost:3600/patients/register', {
             method: 'POST',
@@ -97,6 +132,5 @@ document.getElementById('registrationForm').onsubmit = async function (event) {
         console.error('Error:', err);
         alert('Error submitting form');
     }
-    
+}
 };
-

@@ -13,7 +13,8 @@ document.addEventListener('click', (event) => {
         mobileMenu.classList.remove('visible'); 
     }
 });
-
+console.log('Patient Name:', localStorage.getItem('patientName'));
+console.log('Patient Email:', localStorage.getItem('patientEmail'));
 
 // Retrieve data from localStorage
 const name = localStorage.getItem('patientName');
@@ -28,7 +29,7 @@ if (name && email) {
     document.getElementById('patient-email').textContent = "Not logged in";
 }
 
-// Add functionality for the logout button
+
 document.getElementById('logout-btn').addEventListener('click', function() {
     // Clear localStorage on logout
     localStorage.removeItem('patientName');
