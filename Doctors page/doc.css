@@ -6,6 +6,7 @@ body {
     line-height: 1.6;
     background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
 
+
   }
   
   .header {
@@ -108,13 +109,19 @@ color: #333;
     transition: all ease-in-out 0.5s;
 }
 
-/* Utility class to show the menu */
 .visible {
     display: block;
 }
   
   main {
     padding: 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 100%;
   }
   
   h2 {

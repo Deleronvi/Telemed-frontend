@@ -44,3 +44,7 @@ document.getElementById('reschedule').addEventListener('click', function(event){
     window.location.href = "../Appointments page/app.html";
 });
 
+document.getElementById('cancel').addEventListener('click', function(event){
+    event.preventDefault();
+    alert("Are you sure you want to cancel ?");
+})

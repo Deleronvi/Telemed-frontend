@@ -7,8 +7,7 @@ body{
    height: 100%;
     }
     .container{
-    
-   height: 100vh;
+   height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,6 +17,7 @@ body{
     background-repeat: no-repeat;
   background-attachment: fixed;
   flex-wrap:wrap ;
+
     }
     
 nav{
@@ -63,16 +63,14 @@ display: flex;
     }
     .box{
         width: 90%;
-        max-width: 450px;
+        max-width: 28.2rem;
         background: transparent;
         padding: 40px 40px 70px;
         text-align: center;
-        transform: translate(-50%,-50%);
+        
         border:2px solid #473f47 ;
         border-radius: 20px;       
-        position:absolute;
-        top: 50%;
-        left: 50%;
+        margin: 0 auto;
         margin-top: 30px;
         
     }
