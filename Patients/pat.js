@@ -13,21 +13,26 @@ document.addEventListener('click', (event) => {
         mobileMenu.classList.remove('visible'); 
     }
 });
-console.log('Patient Name:', localStorage.getItem('patientName'));
-console.log('Patient Email:', localStorage.getItem('patientEmail'));
 
-// Retrieve data from localStorage
-const name = localStorage.getItem('patientName');
-const email = localStorage.getItem('patientEmail');
 
+const urlParams = new URLSearchParams(window.location.search);
+const name = urlParams.get('name');
+const email = urlParams.get('email');
+
+
+console.log('Patient Name:', name);
+console.log('Patient Email:', email);
 // Display patient details in the profile section
 if (name && email) {
-    document.getElementById('patient-name').textContent = name;
+    document.getElementById('welcome-patient-name').textContent = name;
+    document.getElementById('profile-patient-name').textContent = name;
     document.getElementById('patient-email').textContent = email;
 } else {
-    document.getElementById('patient-name').textContent = "Guest";
+    document.getElementById('welcome-patient-name').textContent = "Guest";
+    document.getElementById('profile-patient-name').textContent = "Guest";
     document.getElementById('patient-email').textContent = "Not logged in";
 }
+
 
 
 document.getElementById('logout-btn').addEventListener('click', function() {

@@ -6,7 +6,7 @@ let inputField = document.getElementById("input-field")
 let sexField = document.getElementById("sexField")
 let dateField = document.getElementById("dateField")
  let contField = document.getElementById("contField")
- let submitBtn = document.getElementById("loginBtn");
+ let submitBtn = document.getElementById("login-btn");
 
 loginBtn.onclick = function(){
     console.log("Log In button clicked");
@@ -27,13 +27,14 @@ loginBtn.onclick = function(){
 }
 signupBtn.onclick = function(){
     console.log("Sign Up button clicked");
-    nameField.style.height = "60px";
-    dateField.style.height = "60px";
-    sexField.style.height = "60px";
-    contField.style.height = "60px";
+    nameField.style.display = 'flex';
+    dateField.style.display = 'flex';
+    sexField.style.display = 'flex';
+    contField.style.display = 'flex';
     title.innerHTML = "sign Up";
     signupBtn.classList.remove("disable");
     loginBtn.classList.add("disable");
+    submitBtn.innerText = "Sign Up";
 }
 
 // Form submission and validation
@@ -46,6 +47,8 @@ document.getElementById('registrationForm').onsubmit = async function (event) {
     const email = document.getElementById('email').value;
     const passwordField = document.getElementById('password').value;
     console.log("Password being sent:", passwordField);
+    console.log("Password field type:", typeof passwordField); // Should log "string"
+
 
     const confirmPasswordField = document.getElementById('confirmPassword').value;
     const termsCheckbox = document.getElementById('terms');
@@ -70,10 +73,8 @@ document.getElementById('registrationForm').onsubmit = async function (event) {
         alert('Please enter a valid email address.');
         return;
     }
+    
 
-    // Save data to localStorage if validation passes
-    localStorage.setItem('patientName', full_name);
-    localStorage.setItem('patientEmail', email);
 
     // Send data to the backend via a POST request
     if (submitBtn.innerText === "Log In") {
@@ -84,16 +85,23 @@ document.getElementById('registrationForm').onsubmit = async function (event) {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email, password }),
+                body: JSON.stringify({
+                    email: email,
+                    password: passwordField,     
+                }),
             });
 
             const result = await response.json();
+            console.log("Backend Response:", result);
 
             if (response.ok) {
                 console.log('Login successful', result);
-                localStorage.setItem('patientName', result.name);
-                localStorage.setItem('patientEmail', result.email);
-                window.location.href = '../Patients/patients.html';  // Redirect to patients page
+
+                console.log('Setting patient name:', result.name);
+                console.log('Setting patient email:', result.email);
+
+                window.location.href = `../Patients/patients.html?name=${encodeURIComponent(response.name)}&email=${encodeURIComponent(response.email)}`;
+
             } else {
                 alert(result.error || 'Failed to log in');
             }
@@ -123,6 +131,9 @@ document.getElementById('registrationForm').onsubmit = async function (event) {
         const result = await response.json();
         if (response.ok) {
             console.log('Patient registered successfully', result);
+
+            localStorage.setItem('patientName', fullName);
+            localStorage.setItem('patientEmail', email);
             // Redirect to the patient's profile or dashboard page
             window.location.href = '../Patients/patients.html';
         } else {
