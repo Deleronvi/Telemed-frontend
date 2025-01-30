@@ -100,7 +100,7 @@ document.getElementById('registrationForm').onsubmit = async function (event) {
                 console.log('Setting patient name:', result.name);
                 console.log('Setting patient email:', result.email);
 
-                window.location.href = `../Patients/patients.html?name=${encodeURIComponent(response.name)}&email=${encodeURIComponent(response.email)}`;
+                window.location.href = `../Patients/patients.html?name=${encodeURIComponent(result.name)}&email=${encodeURIComponent(result.email)}`;
 
             } else {
                 alert(result.error || 'Failed to log in');
@@ -132,10 +132,7 @@ document.getElementById('registrationForm').onsubmit = async function (event) {
         if (response.ok) {
             console.log('Patient registered successfully', result);
 
-            localStorage.setItem('patientName', fullName);
-            localStorage.setItem('patientEmail', email);
-            // Redirect to the patient's profile or dashboard page
-            window.location.href = '../Patients/patients.html';
+            window.location.href = `../Patients/patients.html?name=${encodeURIComponent(result.name)}&email=${encodeURIComponent(result.email)}`;
         } else {
             alert(result.error || 'Failed to register patient');
         }
