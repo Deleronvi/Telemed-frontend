@@ -2,6 +2,12 @@
 //burger menu
 const burgerBtn = document.getElementById('burger-btn');
 const mobileMenu = document.getElementById('mobile-menu');
+const upcomingAppointments = [];
+const appointmentHistory = [];
+
+const patientId = localStorage.getItem('patientId');
+
+console.log('Patient ID from localStorage on patient page:', patientId);
 
 burgerBtn.addEventListener('click', (event) => {
     mobileMenu.classList.toggle('visible');
@@ -14,7 +20,93 @@ document.addEventListener('click', (event) => {
     }
 });
 
+const appointmentsList = document.getElementById('appointments-list');
+const noUpcoming = document.getElementById('no-upcoming');
 
+if (upcomingAppointments.length === 0) {
+    noUpcoming.style.display = 'block';
+} else {
+    noUpcoming.style.display = 'none';
+    upcomingAppointments.forEach(appointment => {
+        const appointmentCard = document.createElement('div');
+        appointmentCard.className = 'appointment-card';
+        appointmentCard.innerHTML = `
+            <p>Doctor: ${appointment.doctor}</p>
+            <p>Date: ${appointment.date}</p>
+            <p>Time: ${appointment.time}</p>
+            <a href="../Appointments page/app.html" style="text-decoration: none;">
+                <button class="reschedule-btn">Reschedule</button>
+            </a>
+            <button class="cancel-btn">Cancel</button>
+        `;
+        appointmentsList.appendChild(appointmentCard);
+    });
+}
+
+// Appointment History Section
+const historyList = document.getElementById('history-list');
+const noHistory = document.getElementById('no-history');
+
+if (appointmentHistory.length === 0) {
+    noHistory.style.display = 'block';
+} else {
+    noHistory.style.display = 'none';
+    appointmentHistory.forEach(history => {
+        const historyCard = document.createElement('div');
+        historyCard.className = 'history-card';
+        historyCard.innerHTML = `
+            <p>Doctor: ${history.doctor}</p>
+            <p>Date: ${history.date}</p>
+            <p>Status: ${history.status}</p>
+        `;
+        historyList.appendChild(historyCard);
+    }); }
+
+    async function fetchAppointments(patientId) {
+        try {
+            const response = await fetch(`http://localhost:3600/patients/appointments/${patientId}`);
+            const result = await response.json();
+    
+            if (response.ok) {
+                console.log('Appointments:', result.appointments);
+                displayAppointments(result.appointments);
+            } else {
+                console.error('Error fetching appointments:', result.error);
+                document.getElementById('appointments-list').innerText = 'Failed to load appointments.';
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            document.getElementById('appointments-list').innerText = 'An error occurred.';
+        }
+    }
+
+    function displayAppointments(appointments) {
+        const appointmentsList = document.getElementById('appointments-list');
+        appointmentsList.innerHTML = ''; // Clear existing content
+    
+        if (appointments.length === 0) {
+            appointmentsList.innerHTML = '<p>No upcoming appointments found.</p>';
+            return;
+        }
+    
+        appointments.forEach(appointment => {
+            const card = document.createElement('div');
+            card.className = 'appointment-card';
+    
+            card.innerHTML = `
+                <p>Doctor: Dr. ${appointment.doctor_first_name} ${appointment.doctor_last_name}</p>
+                <p>Date: ${appointment.appointment_date}</p>
+                <p>Time: ${appointment.appointment_time}</p>
+                <a href="../Appointments page/app.html" style="text-decoration: none;">
+                    <button id="reschedule" class="reschedule-btn">Reschedule</button>
+                </a>
+                <button id="cancel" class="cancel-btn">Cancel</button>
+            `;
+    
+            appointmentsList.appendChild(card);
+        });
+    }
+    
 const urlParams = new URLSearchParams(window.location.search);
 const name = urlParams.get('name');
 const email = urlParams.get('email');

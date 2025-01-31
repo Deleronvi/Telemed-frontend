@@ -96,11 +96,11 @@ document.getElementById('registrationForm').onsubmit = async function (event) {
 
             if (response.ok) {
                 console.log('Login successful', result);
-
+                localStorage.setItem('patientId', response.patientId);
                 console.log('Setting patient name:', result.name);
                 console.log('Setting patient email:', result.email);
-
-                window.location.href = `../Patients/patients.html?name=${encodeURIComponent(result.name)}&email=${encodeURIComponent(result.email)}`;
+                const appointments = encodeURIComponent(JSON.stringify(result.appointments));
+                window.location.href = `../Patients/patients.html?name=${encodeURIComponent(firstName)}&email=${encodeURIComponent(email)}&appointments=${appointments}`;
 
             } else {
                 alert(result.error || 'Failed to log in');
