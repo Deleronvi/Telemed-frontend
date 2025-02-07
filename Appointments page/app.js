@@ -23,18 +23,27 @@ if (!patientId) {
     return;
 }
     try {
-        const response = await fetch(`http://localhost:3600/appointments?patientId=${patientId}`);
+        const token = localStorage.getItem('token');
+        const response = await fetch(`http://localhost:3600/appointments?patientId=${patientId}`, {
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token ? `Bearer ${token}` : ''
+            }
+        });
         
         if (!response.ok) {
             if (response.status === 401) {
                 alert('Session expired. Please log in again.');
-                localStorage.removeItem('patientId'); // Clear localStorage for security
+               
                 window.location.href = '../login page/login.html';
                 return;
             } else {
                 throw new Error('Failed to fetch data.');
+                console.error('Failed to fetch data:', response.status);
             }
-            console.log(await response.json());
+        
 
         }
 
@@ -42,7 +51,7 @@ if (!patientId) {
 
         // Render appointments on the page
         const historyList = document.getElementById('history-list');
-        historyList.innerHTML = ''; // Clear existing content
+        historyList.innerHTML = ''; 
 
         appointments.forEach((appointment) => {
             const card = document.createElement('div');
@@ -57,7 +66,7 @@ if (!patientId) {
         });
     } catch (error) {
         console.error('Error loading appointments page:', error);
-        alert('An error occurred. Please try again later.');
+      //  alert('An error occurred. Please try again later.');
     }
 });
 

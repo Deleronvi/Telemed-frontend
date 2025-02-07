@@ -7,6 +7,15 @@ const appointmentHistory = [];
 
 const patientId = localStorage.getItem('patientId');
 
+if (!patientId) {
+    console.warn("Patient ID not found in localStorage.");
+} else {
+    console.log("Patient ID:", patientId);
+    fetchAppointments(patientId);
+}
+
+
+
 console.log('Patient ID from localStorage on patient page:', patientId);
 
 burgerBtn.addEventListener('click', (event) => {
@@ -64,7 +73,14 @@ if (appointmentHistory.length === 0) {
 
     async function fetchAppointments(patientId) {
         try {
-            const response = await fetch(`http://localhost:3600/patients/appointments/${patientId}`);
+            const response = await fetch(`http://localhost:3600/patients/appointments/${patientId}`, {
+                method: 'GET',
+                credentials: 'include', 
+                headers: {
+                    'Content-Type': 'application/json',
+                     
+                }
+            });
             const result = await response.json();
     
             if (response.ok) {
